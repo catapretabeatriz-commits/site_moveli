@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>MOVELI – Animação de logotipo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&display=swap" rel="stylesheet">
+    <!-- Apontando para o CSS exclusivo da intro -->
+    <link rel="stylesheet" href="intro.css">
+</head>
+<body>
+<div class="stage">
+ <div class="word" id="w" aria-label="MOVELI">
+  <span class="l" style="--i:0">M</span>
+  <span class="l" style="--i:1">O</span>
+  <span class="l" style="--i:2">
+   <svg class="v" viewBox="0 0 100 100" aria-hidden="true">
+    <polygon fill="#eae3cf" points="50,72 74,0 100,0 63,100 37,100"/>
+    <g class="leg">
+     <polygon fill="#eae3cf" points="0,0 26,0 50,72 37,100"/>
+     <g id="ticks"></g>
+    </g>
+   </svg>
+  </span>
+  <span class="l" style="--i:3">E</span>
+  <span class="l" style="--i:4">L</span>
+  <span class="l" style="--i:5">I</span>
+ </div>
+</div>
+<button id="r" type="button">Repetir</button>
+<script src="script.js"></script>
+<script>
+    // O número 3000 representa 3 segundos (1000 = 1 segundo)
+    setTimeout(function() {
+        window.location.href = "home.html";
+    }, 5000);
+</script>
+</body>
+</html>

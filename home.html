@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOVELI | Móveis Planejados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO / MENU -->
+    <header>
+        <div class="logo">MOVELI</div>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#portfolio">Portfólio</a>
+            <a href="#sobre">Sobre Nós</a>
+            <a href="#contato" class="btn-contato">Orçamento</a>
+        </nav>
+    </header>
+
+    <!-- SEÇÃO INÍCIO (HERO) -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Móveis sob medida que transformam seu ambiente</h1>
+            <p>Projetos exclusivos em madeira com acabamento impecável para a sua casa ou escritório.</p>
+            <a href="#contato" class="btn-principal">Solicitar Orçamento</a>
+        </div>
+    </section>
+
+    <!-- SEÇÃO PORTFÓLIO -->
+    <section id="portfolio" class="portfolio">
+        <h2>Nosso Portfólio</h2>
+        <p class="subtitulo">Conheça alguns dos nossos projetos entregues</p>
+        
+        <div class="grid-galeria">
+            <div class="card-projeto">
+                <div class="placeholder-img">Cozinha Planejada</div>
+                <h3>Cozinha Moderna</h3>
+            </div>
+            <div class="card-projeto">
+                <div class="placeholder-img">Guarda-Roupa Casal</div>
+                <h3>Quarto Planejado</h3>
+            </div>
+            <div class="card-projeto">
+                <div class="placeholder-img">Painel para Sala</div>
+                <h3>Home Theater</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO SOBRE NÓS -->
+    <section id="sobre" class="sobre">
+        <div class="sobre-container">
+            <h2>Sobre a Marcenaria</h2>
+            <p>Há anos no mercado, unimos a tradição da marcenaria artesanal com tecnologias modernas de projeto. Cada peça é pensada exclusivamente para otimizar o seu espaço, garantindo durabilidade, elegância e funcionalidade.</p>
+        </div>
+    </section>
+
+    <!-- SEÇÃO CONTATO -->
+    <section id="contato" class="contato">
+        <h2>Fale Conosco</h2>
+        <p>Tem um projeto em mente? Entre em contato e faça um orçamento sem compromisso.</p>
+        
+        <form class="form-contato" onsubmit="enviarWhatsApp(event)">
+            <input type="text" id="nome" placeholder="Seu Nome" required>
+            <input type="tel" id="telefone" placeholder="Seu Telefone / WhatsApp" required>
+            <textarea id="mensagem" placeholder="Descreva o seu projeto (ex: móvel para quarto, medidas, etc.)" rows="4" required></textarea>
+            <button type="submit" class="btn-principal">Enviar pelo WhatsApp</button>
+        </form>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>&copy; 2026 Arte & Madeira Marcenaria. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- SCRIPT SIMPLES PARA MANDAR PRO WHATSAPP -->
+    <script>
+        function enviarWhatsApp(event) {
+            event.preventDefault(); // Evita recarregar a página
+            
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const mensagem = document.getElementById('mensagem').value;
+
+            // Substitua o número abaixo pelo seu WhatsApp com DDD (ex: 5531999999999)
+            const meuNumero = "5531999999999"; 
+
+            const texto = `Olá! Meu nome é *${nome}* (Tel: ${telefone}). Gostaria de fazer um orçamento: ${mensagem}`;
+            const url = `https://wa.me/${meuNumero}?text=${encodeURIComponent(texto)}`;
+
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

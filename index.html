@@ -1,54 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MOVELI – Animação de logotipo</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="intro.css">
-</head>
-<body>
-<div class="stage">
- <div class="word" id="w" aria-label="MOVELI">
-  <span class="l" style="--i:0">M</span>
-  <span class="l" style="--i:1">O</span>
-  <span class="l" style="--i:2">
-   <svg class="v" viewBox="0 0 100 100" aria-hidden="true">
-    <polygon fill="#eae3cf" points="50,72 74,0 100,0 63,100 37,100"/>
-    <g class="leg">
-     <polygon fill="#eae3cf" points="0,0 26,0 50,72 37,100"/>
-     <g id="ticks"></g>
-    </g>
-   </svg>
-  </span>
-  <span class="l" style="--i:3">E</span>
-  <span class="l" style="--i:4">L</span>
-  <span class="l" style="--i:5">I</span>
- </div>
-</div>
-<button id="r" type="button">Repetir</button>
-<script>
-(function(){
- var g=document.getElementById('ticks'),ns='http://www.w3.org/2000/svg';
- for(var k=0;k<9;k++){
-  var y=8+k*10.5, x=0.37*y, len=(k%2===0)?13:8;
-  var p=document.createElementNS(ns,'path');
-  p.setAttribute('d','M'+(x-1)+' '+y+' L'+(x+len)+' '+y);
-  p.setAttribute('pathLength','1');
-  p.setAttribute('class','tick');
-  p.style.setProperty('--t',k);
-  g.appendChild(p);
- }
- var w=document.getElementById('w');
- function play(){w.classList.remove('go');void w.offsetWidth;w.classList.add('go');}
- document.getElementById('r').addEventListener('click',play);
- play();
-})();
 
-// Redireciona automaticamente para a página principal após 5 segundos
-setTimeout(function() {
-    window.location.href = "home.html";
-}, 5000);
-</script>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>MOVELI – Animação de logotipo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="intro.css">
+</head>
+
+<body>
+    <div class="stage">
+        <div class="word" id="w" aria-label="MOVELI">
+            <span class="l" style="--i:0">M</span>
+            <span class="l" style="--i:1">O</span>
+            <span class="l" style="--i:2">
+                <svg class="v" viewBox="0 0 100 100" aria-hidden="true">
+                    <polygon fill="#eae3cf" points="50,72 74,0 100,0 63,100 37,100" />
+                    <g class="leg">
+                        <polygon fill="#eae3cf" points="0,0 26,0 50,72 37,100" />
+                        <g id="ticks"></g>
+                    </g>
+                </svg>
+            </span>
+            <span class="l" style="--i:3">E</span>
+            <span class="l" style="--i:4">L</span>
+            <span class="l" style="--i:5">I</span>
+        </div>
+    </div>
+    <button id="r" type="button">Repetir</button>
+    <script>
+        (function () {
+            var g = document.getElementById('ticks'), ns = 'http://www.w3.org/2000/svg';
+            for (var k = 0; k < 9; k++) {
+                var y = 8 + k * 10.5, x = 0.37 * y, len = (k % 2 === 0) ? 13 : 8;
+                var p = document.createElementNS(ns, 'path');
+                p.setAttribute('d', 'M' + (x - 1) + ' ' + y + ' L' + (x + len) + ' ' + y);
+                p.setAttribute('pathLength', '1');
+                p.setAttribute('class', 'tick');
+                p.style.setProperty('--t', k);
+                g.appendChild(p);
+            }
+            var w = document.getElementById('w');
+            function play() { w.classList.remove('go'); void w.offsetWidth; w.classList.add('go'); }
+            document.getElementById('r').addEventListener('click', play);
+            play();
+        })();
+
+        // Redireciona automaticamente para a página principal após 5 segundos
+        setTimeout(function () {
+            window.location.href = "home.html";
+        }, 5000);
+    </script>
 </body>
+
 </html>

@@ -29,10 +29,12 @@ body::after {
 }
 
 .stage {
-    height: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 0 16px;
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
 }
 
 .word {
@@ -41,10 +43,10 @@ body::after {
     gap: .05em;
     font-family: "Barlow", "Arial Rounded MT Bold", Arial, sans-serif;
     font-weight: 700;
-    font-size: clamp(44px, 12.5vw, 150px);
+    font-size: clamp(36px, 12vw, 150px);
     color: var(--cream);
     line-height: 1;
-    letter-spacing: .01em
+    letter-spacing: .01em;
 }
 
 .l {
@@ -110,20 +112,20 @@ svg.v {
 
 .tick {
     stroke: var(--bg);
-    stroke-width: 3.6;
+    stroke-width: 4;
     stroke-linecap: butt;
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1
+    stroke-dasharray: 20;
+    stroke-dashoffset: 20;
 }
 
 .go .tick {
     animation: sweep .28s ease-out forwards;
-    animation-delay: calc(3.2s + var(--t)*.17s)
+    animation-delay: calc(2.6s + var(--t)*.12s);
 }
 
 @keyframes sweep {
     to {
-        stroke-dashoffset: 0
+        stroke-dashoffset: 0;
     }
 }
 

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>MOVELI – Animação de logotipo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&display=swap" rel="stylesheet">
-    <!-- Apontando para o CSS exclusivo da intro -->
-    <link rel="stylesheet" href="intro.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MOVELI – Animação de logotipo</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="intro.css">
 </head>
 <body>
 <div class="stage">
@@ -28,12 +27,28 @@
  </div>
 </div>
 <button id="r" type="button">Repetir</button>
-<script src="script.js"></script>
 <script>
-    // O número 3000 representa 3 segundos (1000 = 1 segundo)
-    setTimeout(function() {
-        window.location.href = "home.html";
-    }, 5000);
+(function(){
+ var g=document.getElementById('ticks'),ns='http://www.w3.org/2000/svg';
+ for(var k=0;k<9;k++){
+  var y=8+k*10.5, x=0.37*y, len=(k%2===0)?13:8;
+  var p=document.createElementNS(ns,'path');
+  p.setAttribute('d','M'+(x-1)+' '+y+' L'+(x+len)+' '+y);
+  p.setAttribute('pathLength','1');
+  p.setAttribute('class','tick');
+  p.style.setProperty('--t',k);
+  g.appendChild(p);
+ }
+ var w=document.getElementById('w');
+ function play(){w.classList.remove('go');void w.offsetWidth;w.classList.add('go');}
+ document.getElementById('r').addEventListener('click',play);
+ play();
+})();
+
+// Redireciona automaticamente para a página principal após 5 segundos
+setTimeout(function() {
+    window.location.href = "home.html";
+}, 5000);
 </script>
 </body>
 </html>

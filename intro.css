@@ -1,0 +1,139 @@
+:root {
+    --bg: #0b1d3a;
+    --cream: #f4efe1;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px)
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0
+}
+
+body {
+    background: var(--bg);
+    overflow: hidden;
+    position: relative;
+    background-image: radial-gradient(ellipse at center, #16396b 0%, #0f2a50 70%, #0c2244 100%)
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .07;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>")
+}
+
+.stage {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.word {
+    display: flex;
+    align-items: center;
+    gap: .05em;
+    font-family: "Barlow", "Arial Rounded MT Bold", Arial, sans-serif;
+    font-weight: 700;
+    font-size: clamp(44px, 12.5vw, 150px);
+    color: var(--cream);
+    line-height: 1;
+    letter-spacing: .01em
+}
+
+.l {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(-90vh)
+}
+
+.go .l {
+    animation: drop .9s cubic-bezier(.3, .9, .4, 1) forwards;
+    animation-delay: calc(var(--i)*.28s)
+}
+
+@keyframes drop {
+    0% {
+        opacity: 0;
+        transform: translateY(-90vh)
+    }
+
+    15% {
+        opacity: 1
+    }
+
+    70% {
+        transform: translateY(.05em)
+    }
+
+    85% {
+        transform: translateY(-.02em)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+svg.v {
+    height: .7em;
+    width: .7em;
+    overflow: visible;
+    display: block
+}
+
+.leg {
+    transform-box: fill-box;
+    transform-origin: 50% 50%
+}
+
+.go .leg {
+    animation: lift .9s ease-in-out 2.6s forwards
+}
+
+@keyframes lift {
+    0% {
+        transform: translate(0, 0)
+    }
+
+    100% {
+        transform: translate(-3px, 0)
+    }
+}
+
+.tick {
+    stroke: var(--bg);
+    stroke-width: 3.6;
+    stroke-linecap: butt;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1
+}
+
+.go .tick {
+    animation: sweep .28s ease-out forwards;
+    animation-delay: calc(3.2s + var(--t)*.17s)
+}
+
+@keyframes sweep {
+    to {
+        stroke-dashoffset: 0
+    }
+}
+
+
+
+/* Efeito de esmaecimento (fade-out) na saída */
+body {
+    transition: opacity 0.8s ease-in-out;
+}
+
+body.saindo {
+    opacity: 0;
+}
